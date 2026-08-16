@@ -1,0 +1,979 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: #f5f5f5;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #171717;
+
+    /* ENABLE SCROLL */
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================
+   SURAT
+   RASIO DASAR 3.5 : 4
+========================= */
+
+.demo-page {
+    position: relative;
+
+    width: min(100%, 560px);
+
+    /*
+       Tinggi minimum mengikuti
+       rasio 3.5 : 4
+    */
+    min-height: calc(min(100vw, 560px) * 4 / 3.5);
+
+    /*
+       Jangan gunakan height tetap.
+       Surat bisa memanjang mengikuti isi.
+    */
+    height: auto;
+
+    margin: 10px auto;
+
+    background: #fff;
+
+    /*
+       Jangan potong isi.
+    */
+    overflow: visible;
+
+    padding: 14px 24px 25px;
+
+    /*
+       Sedikit shadow supaya surat
+       terpisah dari background.
+    */
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   AGAR ISI TIDAK KELUAR
+========================= */
+
+.demo-page img {
+    max-width: 100%;
+}
+
+/* =========================
+   IMAGE WATERMARK
+========================= */
+
+.demo-watermark {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 54%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+
+    opacity: 0.1;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-watermark img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+/* =========================
+   PREMIUM HEADER
+========================= */
+
+.header {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+    text-align: center;
+
+    padding: 2px 0;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    width: 60px !important;
+    height: 60px !important;
+    transform: translateX(-15px);
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+/* =========================
+   HEADER INFO
+========================= */
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    transform: translate(-20px, 8px);
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    min-width: 0;
+}
+
+/* =========================
+   NAMA PERUSAHAAN
+========================= */
+
+.company-name {
+    margin: 0;
+
+    color: #ee4d2d;
+
+    font-size: 20px !important;
+    font-weight: 850;
+
+    letter-spacing: 0.5px !important;
+
+    line-height: 1.08;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* =========================
+   ALAMAT
+========================= */
+
+.address {
+    margin-top: 5px;
+
+    color: #222;
+
+    font-size: 9px !important;
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    text-align: center;
+}
+
+/* =========================
+   PREMIUM GARIS PEMBATAS
+========================= */
+
+.line {
+    position: relative;
+
+    width: 94%;
+    height: 2px;
+
+    margin: 13px auto 16px;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(217, 87, 59, 0.35) 8%,
+        #d9573b 25%,
+        #ee4d2d 50%,
+        #d9573b 75%,
+        rgba(217, 87, 59, 0.35) 92%,
+        transparent 100%
+    );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 1px 2px rgba(238, 77, 45, 0.12);
+}
+
+/* titik tengah kecil */
+.line::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #ee4d2d;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 5px rgba(238, 77, 45, 0.35);
+}
+
+
+/* =========================
+   PREMIUM JUDUL
+========================= */
+
+.title {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 800;
+    font-style: italic;
+
+    letter-spacing: 0.4px;
+
+    line-height: 1.15;
+
+    color: #111;
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* =========================
+   ICON WARNING
+========================= */
+
+.warning {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 5px;
+
+    font-size: 18px;
+
+    font-style: normal;
+
+    line-height: 1;
+
+    transform: translateY(1px);
+
+    filter:
+        drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+}
+
+/* =========================
+   PREMIUM CONTENT
+========================= */
+
+.content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    color: #171717;
+}
+
+/* =========================
+   PENERIMA
+========================= */
+
+.recipient {
+    margin: 17px 17px 15px !important;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.1px;
+}
+
+
+/* =========================
+   DATA FIELD
+========================= */
+
+.field {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 6px 0;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.1px;
+}
+
+.field .label {
+    width: 100px;
+
+    flex: 0 0 135px;
+
+    white-space: nowrap;
+}
+
+.field .colon {
+    width: 10px;
+
+    flex: 0 0 10px;
+
+    margin: 0;
+
+    text-align: center;
+}
+
+/* =========================
+   PREMIUM PARAGRAPH
+========================= */
+
+.text {
+    width: 100%;
+
+    margin-top: 15px !important;
+
+    font-size: 9.5px;
+    font-weight: 500;
+
+    line-height: 1.3 !important;
+
+    letter-spacing: 0.05px;
+
+    color: #292929;
+
+    text-align: left;
+
+    text-rendering: optimizeLegibility;
+}
+
+/* Jarak antar paragraf */
+.text + .text {
+    margin-top: 5px !important;
+}
+
+/* Teks penting */
+.text strong {
+    font-weight: 800;
+    color: #171717;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-title {
+    width: 100%;
+
+    margin: 14px 0 7px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    text-align: left;
+}
+
+.contact-box {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 7px;
+
+    font-size: 9px;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-circle {
+    width: 24px;
+    height: 24px;
+
+    flex: 0 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+
+    border-radius: 50%;
+}
+
+.whatsapp-circle img {
+    width: 15px;
+    height: 15px;
+
+    object-fit: contain;
+
+    filter:
+        brightness(0)
+        invert(1);
+}
+
+/* =========================
+   BOTTOM LOGOS
+========================= */
+
+.bottom-logos {
+    width: 100%;
+    height: 72px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    margin-top: 5px;
+    padding: 0 22px;
+}
+
+
+/* =========================
+   AREA LOGO
+========================= */
+
+.bottom-logo {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   LOGO KIRI
+========================= */
+
+.left-logo {
+    justify-content: flex-start;
+    transform: translateX(30px);
+}
+
+
+/* =========================
+   LOGO KANAN
+========================= */
+
+.right-logo {
+    justify-content: flex-end;
+    transform: translateX(-70px);
+}
+
+
+/* =========================
+   LOGO DEFAULT
+========================= */
+
+.bottom-logo img {
+    display: block;
+
+    width: auto;
+    height: 34px;
+
+    max-width: 85px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   LOGO KANAN LEBIH BESAR
+========================= */
+
+.right-logo img {
+    height: 34px;
+    max-width: 85px;
+
+    object-fit: contain;
+
+    transform: translateY(-20px) scale(3);
+}
+
+/* =========================
+   GARIS FOOTER
+========================= */
+
+.footer-line {
+    width: 94%;
+
+    height: 2px;
+
+    margin: 2px auto 10px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d9a51e 8%,
+        #d9a51e 92%,
+        transparent
+    );
+
+    border-radius: 10px;
+}
+
+/* =========================
+   PREMIUM FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5px;
+
+    margin-top: 15px;
+    margin-left: 5px;
+    padding: 0;
+}
+
+.footer-item {
+    min-width: 0;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    text-align: left;
+}
+
+.footer-icon {
+    width: 19px;
+    height: 19px;
+
+    flex: 0 0 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ee4d2d;
+
+    font-size: 12px;
+}
+
+.footer-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.footer-title {
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    color: #171717;
+}
+
+.footer-value {
+    font-size: 7.5px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    color: #444;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   WATERMARK
+===================================================== */
+
+.demo-watermark {
+    width: 48%;
+
+    opacity: 0.07;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    width: 94%;
+
+    margin: 0 auto;
+
+    gap: 7px;
+
+    padding: 0;
+}
+
+
+/* logo header */
+.logo {
+    width: 43px !important;
+    height: 43px !important;
+
+    transform: translateX(-7px);
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* informasi header */
+.header-info {
+    transform: translate(-8px, 3px);
+
+    max-width: 75%;
+}
+
+
+/* nama */
+.company-name {
+    font-size: 15px !important;
+
+    letter-spacing: 0.2px !important;
+
+    line-height: 1.05;
+}
+
+
+/* alamat */
+.address {
+    margin-top: 3px;
+
+    font-size: 7px !important;
+
+    line-height: 1.2;
+}
+
+
+/* =====================================================
+   GARIS HEADER
+===================================================== */
+
+.line {
+    width: 92%;
+
+    height: 1.5px;
+
+    margin: 7px auto 9px;
+}
+
+.line::after {
+    width: 4px;
+    height: 4px;
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.title {
+    width: 92%;
+
+    margin: 0 auto 10px;
+
+    font-size: 14px;
+
+    letter-spacing: 0.2px;
+
+    line-height: 1.1;
+}
+
+.warning {
+    margin-left: 3px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    width: 92%;
+
+    margin: 0 auto;
+
+    /*
+       Semua isi punya jarak kiri-kanan
+       yang konsisten
+    */
+}
+
+
+/* =====================================================
+   PENERIMA
+===================================================== */
+
+.recipient {
+    margin: 8px 0 8px !important;
+
+    font-size: 9px;
+
+    line-height: 1.2;
+}
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+.field {
+    width: 100%;
+
+    margin: 3px 0;
+
+    font-size: 9px;
+
+    line-height: 1.15;
+}
+
+.field .label {
+    width: 95px;
+
+    flex: 0 0 95px;
+}
+
+.field .colon {
+    width: 7px;
+
+    flex: 0 0 7px;
+}
+
+
+/* =====================================================
+   PARAGRAPH
+===================================================== */
+
+.text {
+    width: 100%;
+
+    margin: 7px 0 0 !important;
+
+    font-size: 8px;
+
+    line-height: 1.5 !important;
+
+    letter-spacing: 0;
+}
+
+.text + .text {
+    margin-top: 7px !important;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-title {
+    width: 100%;
+
+    margin: 10px 0 4px;
+
+    font-size: 9px;
+
+    line-height: 1.15;
+}
+
+.contact-box {
+    width: 100%;
+
+    gap: 5px;
+
+    font-size: 7.5px;
+}
+
+
+/* WhatsApp */
+.whatsapp-circle {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 18px;
+}
+
+.whatsapp-circle img {
+    width: 11px;
+    height: 11px;
+}
+
+
+/* =====================================================
+   BOTTOM LOGOS
+===================================================== */
+
+.bottom-logos {
+    width: 92%;
+
+    height: 38px;
+
+    margin: 3px auto 0;
+
+    padding: 0 12px;
+}
+
+
+/* area logo */
+.bottom-logo {
+    height: 100%;
+}
+
+
+/* kiri */
+.left-logo {
+    transform: translateX(35px);
+}
+
+
+/* kanan */
+.right-logo {
+    transform: translateX(-60px);
+}
+
+
+/* ukuran normal */
+.bottom-logo img {
+    height: 27px;
+
+    max-width: 70px;
+
+    object-fit: contain;
+}
+
+.left-logo img {
+    height: 27px;
+
+    max-width: 70px;
+
+    transform: translateY(-5px) scale(1.4);
+}
+
+/* kanan lebih besar */
+.right-logo img {
+    height: 27px;
+
+    max-width: 70px;
+
+    transform: translateY(-20px) scale(2.8);
+}
+
+
+/* =====================================================
+   FOOTER LINE
+===================================================== */
+
+.footer-line {
+    width: 92%;
+
+    height: 1.5px;
+
+    margin: 3px auto 6px;
+}
+
+.editor {
+    width: min(560px, calc(100% - 20px));
+
+    margin: 10px auto;
+
+    display: grid;
+    gap: 7px;
+}
+
+.editor input {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    background: #fff;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.editor input:focus {
+    border-color: #ee4d2d;
+}
