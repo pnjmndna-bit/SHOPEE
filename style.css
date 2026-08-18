@@ -1048,3 +1048,41 @@ body {
 
     z-index: 1;
 }
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+#downloadBtn {
+    display: block;
+    margin: 15px auto 25px;
+    padding: 7px 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s ease;
+}
+
+#downloadBtn:hover {
+    transform: translateY(-1px);
+}
+
+#downloadBtn:active {
+    transform: scale(0.96);
+}
+
+#downloadBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
