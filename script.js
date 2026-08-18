@@ -28,16 +28,10 @@ inputTlp.addEventListener("input", function () {
     tlp.textContent = this.value || "0812-0000-0000";
 });
 
-
-// ===============================
-// DOWNLOAD DEMO PAGE
-// ===============================
-
 const downloadBtn = document.getElementById("downloadBtn");
 
 if (downloadBtn) {
-
-    downloadBtn.addEventListener("click", async function () {
+    downloadBtn.addEventListener("click", async () => {
 
         const target = document.getElementById("demoPage");
 
@@ -46,53 +40,43 @@ if (downloadBtn) {
             return;
         }
 
-        if (typeof html2canvas === "undefined") {
-            alert("html2canvas belum dimuat.");
-            return;
-        }
-
         try {
-
             downloadBtn.disabled = true;
             downloadBtn.textContent = "Membuat gambar...";
 
             const canvas = await html2canvas(target, {
-                scale: 2,
+                scale: 3,
+
                 useCORS: true,
                 allowTaint: false,
-                backgroundColor: "#ffffff",
+
+                backgroundColor: null,
 
                 scrollX: 0,
                 scrollY: 0,
 
-                width: target.scrollWidth,
-                height: target.scrollHeight,
+                width: target.offsetWidth,
+                height: target.offsetHeight,
 
-                windowWidth: target.scrollWidth,
-                windowHeight: target.scrollHeight
+                windowWidth: target.offsetWidth,
+                windowHeight: target.offsetHeight
             });
 
             const link = document.createElement("a");
 
             link.download = "demo-page.png";
-            link.href = canvas.toDataURL("image/png");
+            link.href = canvas.toDataURL("image/png", 1.0);
 
             document.body.appendChild(link);
             link.click();
             link.remove();
 
         } catch (error) {
-
             console.error(error);
             alert("Gagal membuat gambar.");
-
-        } finally {
-
-            downloadBtn.disabled = false;
-            downloadBtn.textContent = "Download Gambar";
-
         }
 
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = "Download Gambar";
     });
-
 }
